@@ -11,9 +11,6 @@ unknownsPath = input("Enter the path of the folder which you want to store unkno
 logfile = input("Enter the full name of the file that you want to write logs to (must be a .txt file): ")
 images = []
 names = []
-known_encountered = set()
-unknown_encountered = set()
-unknown_images = []
 unknown_encodings = []
 unknown_counter = 0
 
@@ -29,17 +26,6 @@ def findEncodings(images):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         encode = face_recognition.face_encodings(img)[0]
         encodeList.append(encode)
-
-    return encodeList
-
-def findUnknownEncodings(images):
-    encodeList = []
-    for img in images:
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        face_encodings = face_recognition.face_encodings(img)
-        
-        if face_encodings:
-            encodeList.append(face_encodings[0])
 
     return encodeList
 
@@ -123,8 +109,9 @@ while True:
                     file.write(f"{name_unknown} entered at {datetime.now()}\n")
 
                 cv2.imwrite(f"{unknownsPath}/{name_unknown}.jpg", img[y1:y2, x1:x2])
-                unknown_images.append(img[y1:y2, x1:x2])
-                unknown_encodings = findUnknownEncodings(unknown_images)
+                currencoding = face_recognition.face_encodings(cv2.cvtColor(img[y1:y2, x1:x2], cv2.COLOR_BGR2RGB))
+                if currencoding:
+                    unknown_encodings.append(currencoding[0])
 
                 cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
                 cv2.rectangle(img, (x1, y2-35), (x2, y2), (0, 255, 0), cv2.FILLED)
