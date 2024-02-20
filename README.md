@@ -19,6 +19,9 @@ A simple yet powerful and efficient face detection and logging security system b
 - OpenCV
 - face-detection
 
+## Motivation
+I built this project in response to a phenomenon I noticed in my university’s dorms. To access one’s room, a student would have to swipe their ID to open the main door, swipe to call the elevator, and swipe to press which floor to go to. However, most are courteous enough to hold open the door or elevator for another person, and it is quite easy to get past all three of these checks without swiping your ID once due to the human element of the process. With a real time facial recognition security logging system, even if someone swipes another person in, all people’s entry and exit timestamps are recorded well, and in the event of an incident, being able to identify the cause and time of suspicious activity becomes a lot easier. The functionality of this program is applicable to lots of settings outside of college dorms, virtually in any setting that involves restricted physical access to an area. Whether it’s a corporate office, government facility, or residential building, FaceLogger can offer a solution for tracking access and ensuring the safety of restricted areas.
+
 ## Installation and Usage
 1. Clone the Repository
    ```sh
