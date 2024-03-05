@@ -27,8 +27,12 @@ I built this project in response to a phenomenon I noticed in my university’s 
    ```sh
    https://github.com/TN0123/FaceLogger.git
    ```
-2. Run the application
+2. Install Dependencies
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Run the application
    ```
    python main.py
    ```
-3. Specify the path to your folder of known persons, folder to store unknowns in, and text file to write logs to
+4. Specify the path to your folder of known persons, folder to store unknowns in, and text file to write logs to
